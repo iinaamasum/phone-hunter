@@ -70,45 +70,78 @@ const ReadAllData = (data) => {
           <tbody>
             <tr>
               <td class="col-4 fs-5 text-center text-primary">Unique Id</td>
-              <td class="col-8"></td>
+              <td class="col-8">${data.slug}</td>
             </tr>
             <tr>
               <td class="col-4 fs-5 text-center text-success">Brand</td>
-              <td class="col-8"></td>
+              <td class="col-8">${data.brand}</td>
             </tr>
             <tr>
               <td class="col-4 fs-5 text-center text-primary">Phone Name</td>
-              <td class="col-8"></td>
+              <td class="col-8">${data.name}</td>
             </tr>
             <tr>
               <td class="col-4 fs-5 text-center text-success">Display</td>
-              <td class="col-8"></td>
+              <td class="col-8">${data.mainFeatures.displaySize}</td>
             </tr>
             <tr>
               <td class="col-4 fs-5 text-center text-primary">Storage</td>
-              <td class="col-8"></td>
+              <td class="col-8">${data.mainFeatures.storage}</td>
             </tr>
             <tr>
               <td class="col-4 fs-5 text-center text-success">Memory</td>
-              <td class="col-8"></td>
+              <td class="col-8">${data.mainFeatures.memory}</td>
             </tr>
             <tr>
               <td class="col-4 fs-5 text-center text-primary">Chipset</td>
-              <td class="col-8"></td>
+              <td class="col-8">${data.mainFeatures.chipSet}</td>
             </tr>
             <tr>
               <td class="col-4 fs-5 text-center text-success">Sensors</td>
-              <td class="col-8"></td>
+              <td class="col-8">${data.mainFeatures.sensors}</td>
             </tr>
             <tr>
               <td class="col-4 fs-5 text-center text-success">Release</td>
-              <td class="col-8"></td>
+              <td class="col-8">${
+                data.releaseDate != ''
+                  ? data.releaseDate
+                  : 'No release date found'
+              }</td>
+            </tr>
+            
+          </tbody>
+           <thead>
+             <tr>
+              <th class="col-4 fs-5 text-center fw-bold">Others Info</th>
+             </tr>
+           </thead>
+          <tbody>
+            <tr>
+              <td class="col-4">WLAN</td>
+              <td class="col-8">${data.others.WLAN}</td>
             </tr>
             <tr>
-              <td class="col-4 fs-5 text-center text-success">Others Info</td>
-              <td class="col-8"></td>
+              <td class="col-4">Bluetooth</td>
+              <td class="col-8">${data.others.Bluetooth}</td>
             </tr>
-          </tbody>
+            <tr>
+              <td class="col-4">GPS</td>
+              <td class="col-8">${data.others.GPS}</td>
+            </tr>
+            <tr>
+              <td class="col-4">NFC</td>
+              <td class="col-8">${data.others.NFC}</td>
+            </tr>
+            <tr>
+              <td class="col-4">Radio</td>
+              <td class="col-8">${data.others.Radio}</td>
+            </tr>
+            <tr>
+              <td class="col-4">USB</td>
+              <td class="col-8">${data.others.USB}</td>
+            </tr>
+              
+           </tbody>
         </table>`;
   document.getElementById('details__add').appendChild(detailsDiv);
 };
