@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Phone Finder</title>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="./images/android-chrome-192x192.png" type="image/x-icon">
   <!-- bootstrap css -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -16,7 +18,7 @@
 <body>
   <header>
     <!-- Nav__bar__area -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
       <div class="container mx-auto">
         <a class="navbar-brand fs-2" href="#"><span>Phone</span> <span class="text-danger">Finder</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -29,10 +31,10 @@
               <a class="nav-link" aria-current="page" href="#home">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#phone">Phones</a>
+              <a class="nav-link" href="#phones">Phones</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#deatils">Details</a>
+              <a class="nav-link" href="#details">Details</a>
             </li>
           </ul>
           <form class="d-flex">
@@ -44,16 +46,21 @@
       </div>
     </nav>
   </header>
+  <!-- spinner area -->
+  <div id="spinner" class="container">
+    <img class="position-absolute bottom-50 end-50" src="./images/150x150.gif" alt="" srcset="">
+  </div>
 
-  <section id="details" class="container my-5">
-    <h2 class="text-center pt-5 text-primary">Phone Details</h2>
+  <!-- details are  -->
+  <section id="details" class="container my-3">
+    <h2 class="text-center pb-2 text-primary">Phone Details</h2>
     <div id="details__add" class="row g-4">
     </div>
   </section>
 
-  <section class="container my-5">
+  <section id="phones" class="container my-3">
     <!-- card__section__start -->
-    <h2 class="text-center my-2 pt-5 text-primary">Phones</h2>
+    <h2 class="text-center text-primary pb-2">Phones</h2>
     <div id="validation"></div>
     <div id="new__card" class="row row-cols-1 row-cols-md-3 g-4">
     </div>

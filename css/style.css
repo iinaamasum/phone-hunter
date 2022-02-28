@@ -5,6 +5,11 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+#details,
+#phones,
+#spinner {
+  display: none;
+}
 
 ul > li > a {
   color: black;

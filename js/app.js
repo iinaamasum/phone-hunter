@@ -1,21 +1,42 @@
 document.getElementById('search__btn').addEventListener('click', (e) => {
+  document.getElementById('spinner').style.display = 'block';
   e.preventDefault();
+  document.getElementById('details').style.display = 'none';
   const input = document.getElementById('input__feild');
+  /* validation */
   if (input.value == '') {
+    document.getElementById('spinner').style.display = 'none';
+    document.getElementById('new__card').textContent = '';
+    document.getElementById('phones').style.display = 'block';
     document.getElementById('validation').innerHTML = `
     <div class="text-center text-danger py-2">You Have Enatered A Null String. Please Enter A Valid Brand Name</div>`;
+    return;
   } else {
+    document.getElementById('spinner').style.display = 'none';
     document.getElementById('validation').innerHTML = '';
-    const url = `https://openapi.programming-hero.com/api/phones?search=${input.value}`;
+    /* fetching data */
+    const url = `https://openapi.programming-hero.com/api/phones?search=${input.value.toLowerCase()}`;
     fetch(url)
       .then((res) => res.json())
-      .then((info) => showPhoneInCard(info?.data));
+      .then((info) => {
+        /* checking status of data */
+        if (info.status == true) {
+          showPhoneInCard(info.data);
+          document.getElementById('phones').style.display = 'block';
+        } else {
+          document.getElementById('phones').style.display = 'block';
+          document.getElementById('new__card').textContent = '';
+          document.getElementById('validation').innerHTML = `
+              <div class="text-center text-danger py-2">
+              You have entered wrong phone name or the phone is not available</div>`;
+        }
+      });
   }
   input.value = '';
 });
 
+/* card showing function */
 const showPhoneInCard = (phones) => {
-  /* console.log(phones[0]); */
   let count = 0;
   document.getElementById('new__card').textContent = '';
   phones.forEach((phone) => {
@@ -33,7 +54,7 @@ const showPhoneInCard = (phones) => {
             <h5 class="card-title">Brand Name: ${phone?.brand}</h5>
           </div>
           <div class="card-footer bg-white">
-          <button onclick="PhoneDetails('${phone?.slug}')" class="btn btn-outline-primary col-12 shadow-none">More Details</button>
+          <a href="#details"><button onclick="PhoneDetails('${phone?.slug}')" class="btn btn-outline-primary col-12 shadow-none">More Details</button></a>
           </div>
         </div>`;
       document.getElementById('new__card').appendChild(cardDiv);
@@ -41,14 +62,18 @@ const showPhoneInCard = (phones) => {
   });
 };
 
+/* show details function */
 const PhoneDetails = (id) => {
+  document.getElementById('details').style.display = 'block';
   const url = `https://openapi.programming-hero.com/api/phone/${id}`;
   fetch(url)
     .then((res) => res.json())
     .then((info) => ReadAllData(info?.data));
 };
 
+/* rading data function of PhoneDetails */
 const ReadAllData = (data) => {
+  /* image div creation */
   console.log(data);
   document.getElementById('details__add').textContent = '';
   const imgDiv = document.createElement('div');
@@ -66,10 +91,12 @@ const ReadAllData = (data) => {
   `;
   document.getElementById('details__add').appendChild(imgDiv);
 
+  /* table div creation */
   const detailsDiv = document.createElement('div');
   detailsDiv.classList.add('col-12');
   detailsDiv.classList.add('col-md-7');
   detailsDiv.classList.add('table-responsive');
+  console.log(data.mainFeatures.sensors);
   detailsDiv.innerHTML = `
         <table class="table table-striped table-hover">
           <thead class="text-center">
@@ -131,11 +158,11 @@ const ReadAllData = (data) => {
             </tr>
             <tr>
               <td class="col-4 fs-5 text-center text-success">Sensors</td>
-              <td class="col-8">${
+              <td id="sensor" class="col-8">${
                 !data?.mainFeatures?.sensors
                   ? 'No info found'
-                  : data.mainFeatures.sensors
-              }</td>
+                  : sensorDetails(data.mainFeatures.sensors)
+              }
             </tr>
             <tr>
               <td class="col-4 fs-5 text-center text-success">Release</td>
@@ -194,4 +221,16 @@ const ReadAllData = (data) => {
            </tbody>
         </table>`;
   document.getElementById('details__add').appendChild(detailsDiv);
+};
+
+/* sensor in details */
+const sensorDetails = (sensors) => {
+  let i = 1;
+  console.log(sensors);
+  let sensorString = '';
+  sensors.forEach((sensor) => {
+    sensorString += i + ') ' + sensor + ' ' + '\n';
+    i++;
+  });
+  return sensorString;
 };
