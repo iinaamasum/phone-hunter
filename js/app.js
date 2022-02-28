@@ -51,9 +51,13 @@ const ReadAllData = (data) => {
   console.log(data);
   const imgDiv = document.createElement('div');
   imgDiv.classList.add('col-12');
+  imgDiv.classList.add('pt-4');
+  imgDiv.classList.add('mt-5');
   imgDiv.classList.add('col-md-5');
   imgDiv.innerHTML = `
-  <img class="img-fluid col-12 pt-4" src="${data.image}" alt="" srcset="">`;
+  <img class="img-fluid col-12 pt-5" src="${data.image}" alt="" srcset="">
+  <h4 class="text-center py-3 text-danger">Picture: ${data.name}</h4>
+  `;
   document.getElementById('details__add').appendChild(imgDiv);
 
   const detailsDiv = document.createElement('div');
