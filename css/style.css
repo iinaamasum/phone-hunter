@@ -5,3 +5,9 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+
+ul > li > a {
+  color: black;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
