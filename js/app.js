@@ -50,9 +50,65 @@ const PhoneDetails = (id) => {
 const ReadAllData = (data) => {
   console.log(data);
   const imgDiv = document.createElement('div');
-  imgDiv.classList.add('col-12 col-md-5');
-  imgDiv.innerHTML=`
-  <img src="${data.image}" alt="" srcset="">`
+  imgDiv.classList.add('col-12');
+  imgDiv.classList.add('col-md-5');
+  imgDiv.innerHTML = `
+  <img class="img-fluid col-12 pt-4" src="${data.image}" alt="" srcset="">`;
+  document.getElementById('details__add').appendChild(imgDiv);
 
-  const 
+  const detailsDiv = document.createElement('div');
+  detailsDiv.classList.add('col-12');
+  detailsDiv.classList.add('col-md-7');
+  detailsDiv.innerHTML = `
+        <table class="table table-striped table-hover">
+          <thead class="text-center">
+            <tr>
+              <th class="col-4 fs-4">Features</th>
+              <th class="col-8 fs-4">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-4 fs-5 text-center text-primary">Unique Id</td>
+              <td class="col-8"></td>
+            </tr>
+            <tr>
+              <td class="col-4 fs-5 text-center text-success">Brand</td>
+              <td class="col-8"></td>
+            </tr>
+            <tr>
+              <td class="col-4 fs-5 text-center text-primary">Phone Name</td>
+              <td class="col-8"></td>
+            </tr>
+            <tr>
+              <td class="col-4 fs-5 text-center text-success">Display</td>
+              <td class="col-8"></td>
+            </tr>
+            <tr>
+              <td class="col-4 fs-5 text-center text-primary">Storage</td>
+              <td class="col-8"></td>
+            </tr>
+            <tr>
+              <td class="col-4 fs-5 text-center text-success">Memory</td>
+              <td class="col-8"></td>
+            </tr>
+            <tr>
+              <td class="col-4 fs-5 text-center text-primary">Chipset</td>
+              <td class="col-8"></td>
+            </tr>
+            <tr>
+              <td class="col-4 fs-5 text-center text-success">Sensors</td>
+              <td class="col-8"></td>
+            </tr>
+            <tr>
+              <td class="col-4 fs-5 text-center text-success">Release</td>
+              <td class="col-8"></td>
+            </tr>
+            <tr>
+              <td class="col-4 fs-5 text-center text-success">Others Info</td>
+              <td class="col-8"></td>
+            </tr>
+          </tbody>
+        </table>`;
+  document.getElementById('details__add').appendChild(detailsDiv);
 };
