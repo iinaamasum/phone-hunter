@@ -14,10 +14,9 @@
 </head>
 
 <body>
-
   <header>
     <!-- Nav__bar__area -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
       <div class="container mx-auto">
         <a class="navbar-brand fs-2" href="#">Phone Finder</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -46,9 +45,71 @@
     </nav>
   </header>
 
-  <section class="container my-3">
+  <section id="details" class="container my-5">
+    <h2 class="text-center pt-5 text-primary">Phone Details</h2>
+    <div class="row g-2">
+      <div class="col-5">
+        <img src="" alt="" srcset="">
+      </div>
+      <div class="col-7">
+        <table class="table table-striped table-hover">
+          <thead class="text-center">
+            <tr>
+              <th class="col-4 fs-4">Features</th>
+              <th class="col-8 fs-4">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-4 fs-5 text-center text-primary">Unique Id</td>
+              <td class="col-8"></td>
+            </tr>
+            <tr>
+              <td class="col-4 fs-5 text-center text-success">Brand</td>
+              <td class="col-8"></td>
+            </tr>
+            <tr>
+              <td class="col-4 fs-5 text-center text-primary">Phone Name</td>
+              <td class="col-8"></td>
+            </tr>
+            <tr>
+              <td class="col-4 fs-5 text-center text-success">Display</td>
+              <td class="col-8"></td>
+            </tr>
+            <tr>
+              <td class="col-4 fs-5 text-center text-primary">Storage</td>
+              <td class="col-8"></td>
+            </tr>
+            <tr>
+              <td class="col-4 fs-5 text-center text-success">Memory</td>
+              <td class="col-8"></td>
+            </tr>
+            <tr>
+              <td class="col-4 fs-5 text-center text-primary">Chipset</td>
+              <td class="col-8"></td>
+            </tr>
+            <tr>
+              <td class="col-4 fs-5 text-center text-success">Sensors</td>
+              <td class="col-8"></td>
+            </tr>
+            <tr>
+              <td class="col-4 fs-5 text-center text-success">Release</td>
+              <td class="col-8"></td>
+            </tr>
+            <tr>
+              <td class="col-4 fs-5 text-center text-success">Others Info</td>
+              <td class="col-8"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="container my-5">
     <!-- card__section__start -->
-    <h2 class="text-center">Phones</h2>
+    <h2 class="text-center my-2 pt-5 text-primary">Phones</h2>
+    <div id="validation"></div>
     <div id="new__card" class="row row-cols-1 row-cols-md-3 g-4">
     </div>
   </section>
