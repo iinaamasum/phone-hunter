@@ -78,8 +78,8 @@ const cardCreation = (phone) => {
         <div class="card h-100 shadow">
           <img src="${phone?.image}" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Phone Title: ${phone?.phone_name}</h5>
-            <h5 class="card-title">Brand Name: ${phone?.brand}</h5>
+            <h5 class="card-title span__font">Phone: ${phone?.phone_name}</h5>
+            <h5 class="card-title span__font">Brand: ${phone?.brand}</h5>
           </div>
           <div class="card-footer bg-white">
           <a href="#details"><button onclick="PhoneDetails('${phone?.slug}')" class="btn btn-outline-dark col-12 shadow-none">More Details</button></a>
@@ -109,10 +109,10 @@ const ReadAllData = (data) => {
   imgDiv.classList.add('col-md-5');
   imgDiv.innerHTML = `
   <img class="img-fluid col-12 pt-5" src="${
-    !data?.image ? 'No info found' : data.image
+    !data?.image ? 'Info not found' : data.image
   }" alt="" srcset="">
   <h4 class="text-center py-3 text-danger">Picture: ${
-    !data?.name ? 'No info found' : data.name
+    !data?.name ? 'Info not found' : data.name
   }</h4>
   `;
   document.getElementById('details__add').appendChild(imgDiv);
@@ -133,28 +133,28 @@ const ReadAllData = (data) => {
           </thead>
           <tbody>
             <tr>
-              <td class="col-4 fs-5 text-center text-primary">Unique Id</td>
+              <td class="col-4 fs-5 text-center text-primary">Product Id</td>
               <td class="col-8">${
-                !data?.slug ? 'No info found' : data.slug
+                !data?.slug ? 'Info not found' : data.slug
               }</td>
             </tr>
             <tr>
               <td class="col-4 fs-5 text-center text-success">Brand</td>
               <td class="col-8">${
-                !data?.brand ? 'No info found' : data.brand
+                !data?.brand ? 'Info not found' : data.brand
               }</td>
             </tr>
             <tr>
               <td class="col-4 fs-5 text-center text-primary">Phone Name</td>
               <td class="col-8">${
-                !data?.name ? 'No info found' : data.name
+                !data?.name ? 'Info not found' : data.name
               }</td>
             </tr>
             <tr>
               <td class="col-4 fs-5 text-center text-success">Display</td>
               <td class="col-8">${
                 !data?.mainFeatures?.displaySize
-                  ? 'No info found'
+                  ? 'Info not found'
                   : data.mainFeatures.displaySize
               }</td>
             </tr>
@@ -162,7 +162,7 @@ const ReadAllData = (data) => {
               <td class="col-4 fs-5 text-center text-primary">Storage</td>
               <td class="col-8">${
                 !data?.mainFeatures?.storage
-                  ? 'No info found'
+                  ? 'Info not found'
                   : data.mainFeatures.storage
               }</td>
             </tr>
@@ -170,7 +170,7 @@ const ReadAllData = (data) => {
               <td class="col-4 fs-5 text-center text-success">Memory</td>
               <td class="col-8">${
                 !data?.mainFeatures?.memory
-                  ? 'No info found'
+                  ? 'Info not found'
                   : data.mainFeatures.memory
               }</td>
             </tr>
@@ -178,7 +178,7 @@ const ReadAllData = (data) => {
               <td class="col-4 fs-5 text-center text-primary">Chipset</td>
               <td class="col-8">${
                 !data?.mainFeatures?.chipSet
-                  ? 'No info found'
+                  ? 'Info not found'
                   : data.mainFeatures.chipSet
               }</td>
             </tr>
@@ -186,7 +186,7 @@ const ReadAllData = (data) => {
               <td class="col-4 fs-5 text-center text-success">Sensors</td>
               <td id="sensor" class="col-8">${
                 !data?.mainFeatures?.sensors
-                  ? 'No info found'
+                  ? 'Info not found'
                   : sensorDetails(data.mainFeatures.sensors)
               }
             </tr>
@@ -206,41 +206,41 @@ const ReadAllData = (data) => {
            </thead>
           <tbody>
             <tr>
-              <td class="col-4">WLAN</td>
+              <td class="col-4 text-center">WLAN</td>
               <td class="col-8">${
-                !data?.others?.WLAN ? 'No info found' : data.others.WLAN
+                !data?.others?.WLAN ? 'Info not found' : data.others.WLAN
               }</td>
             </tr>
             <tr>
-              <td class="col-4">Bluetooth</td>
+              <td class="col-4 text-center">Bluetooth</td>
               <td class="col-8">${
                 !data?.others?.Bluetooth
-                  ? 'No info found'
+                  ? 'Info not found'
                   : data.others.Bluetooth
               }</td>
             </tr>
             <tr>
-              <td class="col-4">GPS</td>
+              <td class="col-4 text-center">GPS</td>
               <td class="col-8">${
-                !data?.others?.GPS ? 'No info found' : data.others.GPS
+                !data?.others?.GPS ? 'Info not found' : data.others.GPS
               }</td>
             </tr>
             <tr>
-              <td class="col-4">NFC</td>
+              <td class="col-4 text-center">NFC</td>
               <td class="col-8">${
-                !data?.others?.NFC ? 'No info found' : data.others.NFC
+                !data?.others?.NFC ? 'Info not found' : data.others.NFC
               }</td>
             </tr>
             <tr>
-              <td class="col-4">Radio</td>
+              <td class="col-4 text-center">Radio</td>
               <td class="col-8">${
-                !data?.others?.Radio ? 'No info found' : data.others.Radio
+                !data?.others?.Radio ? 'Info not found' : data.others.Radio
               }</td>
             </tr>
             <tr>
-              <td class="col-4">USB</td>
+              <td class="col-4 text-center">USB</td>
               <td class="col-8">${
-                !data?.others?.USB ? 'No info found' : data.others.USB
+                !data?.others?.USB ? 'Info not found' : data.others.USB
               }</td>
             </tr>
               
