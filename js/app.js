@@ -1,3 +1,4 @@
+/* getting input value */
 document.getElementById('search__btn').addEventListener('click', (e) => {
   document.getElementById('spinner').style.display = 'block';
   e.preventDefault();
@@ -24,6 +25,7 @@ document.getElementById('search__btn').addEventListener('click', (e) => {
           showPhoneInCard(info.data);
           document.getElementById('phones').style.display = 'block';
         } else {
+          /* validaion of wrong name */
           document.getElementById('phones').style.display = 'block';
           document.getElementById('new__card').textContent = '';
           document.getElementById('validation').innerHTML = `
@@ -37,16 +39,42 @@ document.getElementById('search__btn').addEventListener('click', (e) => {
 
 /* card showing function */
 const showPhoneInCard = (phones) => {
-  let count = 0;
   document.getElementById('new__card').textContent = '';
+  /* looping and showing data */
+  if (phones.length > 20) {
+    phones.slice(0, 20).forEach((phone) => {
+      cardCreation(phone);
+    });
+    /* see more button creation */
+    const div = document.createElement('div');
+    div.classList.add('my-4');
+    div.classList.add('col-12');
+    div.innerHTML = `
+            <div class="btn btn-outline-primary col-12 shadow">Show More</div>`;
+    div.addEventListener('click', () => moreData(phones));
+    document.getElementById('see__more').appendChild(div);
+  } else {
+    phones.forEach((phone) => {
+      cardCreation(phone);
+    });
+  }
+};
+
+/* showMore function  */
+const moreData = (phones) => {
+  document.getElementById('new__card').textContent = '';
+  document.getElementById('see__more').textContent = '';
+  console.log(phones);
   phones.forEach((phone) => {
-    count++;
-    if (count > 20) {
-      return;
-    } else {
-      const cardDiv = document.createElement('div');
-      cardDiv.classList.add('col');
-      cardDiv.innerHTML = `
+    cardCreation(phone);
+  });
+};
+
+/* card creation function */
+const cardCreation = (phone) => {
+  const cardDiv = document.createElement('div');
+  cardDiv.classList.add('col');
+  cardDiv.innerHTML = `
         <div class="card h-100 shadow">
           <img src="${phone?.image}" class="card-img-top" alt="...">
           <div class="card-body">
@@ -54,12 +82,10 @@ const showPhoneInCard = (phones) => {
             <h5 class="card-title">Brand Name: ${phone?.brand}</h5>
           </div>
           <div class="card-footer bg-white">
-          <a href="#details"><button onclick="PhoneDetails('${phone?.slug}')" class="btn btn-outline-primary col-12 shadow-none">More Details</button></a>
+          <a href="#details"><button onclick="PhoneDetails('${phone?.slug}')" class="btn btn-outline-dark col-12 shadow-none">More Details</button></a>
           </div>
         </div>`;
-      document.getElementById('new__card').appendChild(cardDiv);
-    }
-  });
+  document.getElementById('new__card').appendChild(cardDiv);
 };
 
 /* show details function */
