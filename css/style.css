@@ -19,3 +19,13 @@ ul > li > a {
   font-size: 1.1rem;
   font-weight: 400;
 }
+
+@media screen and (max-width: 480px) {
+  /* table font size */
+  td {
+    font-size: 14px;
+  }
+  .fs-5 {
+    font-size: 18px !important;
+  }
+}
